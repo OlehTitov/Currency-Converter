@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AllCurrenciesView: View {
     @EnvironmentObject private var model: Model
-    @EnvironmentObject private var favourites: Favourites
+    @EnvironmentObject private var favs: Favourites
     @State var searchText = ""
     var body: some View {
         if model.currencies.isEmpty {
@@ -23,24 +23,13 @@ struct AllCurrenciesView: View {
         } else {
             NavigationStack {
                 List {
-                    ForEach(model.searchableCurrencies(text: searchText), id: \.self) { currency in
-                        LabeledContent {
-                            Button {
-                                //add to favs or remove
-                                if favourites.contains(currency) {
-                                    favourites.remove(currency)
-                                } else {
-                                    favourites.add(currency)
-                                }
-                            } label: {
-                                Text(favourites.contains(currency) ? "Remove" : "Add")
-                                    .frame(width: 100)
-                            }
-                            .buttonStyle(.bordered)
-                        } label: {
-                            Text(currency.currencyNameForLocale() ?? currency)
-                        }
-                        
+                    ForEach(model.searchableCurrencies(text: searchText), id: \.self) { item in
+                        CurrencyRow(action: {
+                                favs.contains(item) ? favs.remove(item) : favs.add(item)
+                                },
+                            currencyName: item.currencyNameForLocale() ?? item,
+                            buttonLabel: favs.contains(item) ? "Remove" : "Add"
+                        )
                     }
                 }
                 .listStyle(.plain)
@@ -57,5 +46,27 @@ struct AllCurrenciesView_Previews: PreviewProvider {
         AllCurrenciesView()
             .environmentObject(Model())
             .environmentObject(Favourites())
+    }
+}
+
+struct CurrencyRow: View {
+    var action: () -> Void
+    var currencyName: String
+    var buttonLabel: String
+    var body: some View {
+        LabeledContent {
+            Button {
+                //add to favs or remove
+                action()
+            } label: {
+                Text(buttonLabel)
+                    .frame(width: 80)
+            }
+            .buttonStyle(.bordered)
+        } label: {
+            Text(currencyName)
+                .fixedSize(horizontal: false, vertical: true)
+                .lineLimit(1)
+        }
     }
 }
