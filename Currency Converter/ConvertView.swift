@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ConvertView: View {
+    @EnvironmentObject private var model: Model
     var sourceCurrency: String
     @State var sourceAmount: Double = 0.00
     @State var targetAmount: Double = 0.00
@@ -23,6 +24,9 @@ struct ConvertView: View {
                         ToolbarItem(placement: .keyboard) {
                             Button("OK") {
                                 //Call API to make conversion
+                                Task {
+                                    targetAmount = await model.convert(from: sourceCurrency, to: "USD", amount: sourceAmount) ?? 0.00
+                                }
                                 focusedField = false
                             }
                         }
@@ -33,15 +37,24 @@ struct ConvertView: View {
             .listRowSeparator(.hidden)
             //Target currency
             LabeledContent {
-                Text("\(targetAmount, specifier: "%.2f")")
+                VStack {
+                    if model.conversionInProgress {
+                        ProgressView()
+                    } else {
+                        Text(String(format: "%.2f", targetAmount))
+                    }
+                }
             } label: {
                 Text("USD")
             }
             .listRowSeparator(.hidden)
             
         }
+        .font(.title3)
+        .fontWeight(.bold)
         .listStyle(.plain)
         .navigationTitle("Convert")
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

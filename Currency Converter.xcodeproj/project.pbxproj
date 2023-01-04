@@ -20,6 +20,7 @@
 		7CD2D4992965938F006A7EB6 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D4982965938F006A7EB6 /* Favourites.swift */; };
 		7CD2D49B2965C1C9006A7EB6 /* ConvertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D49A2965C1C9006A7EB6 /* ConvertView.swift */; };
 		7CD2D49D2965D5DC006A7EB6 /* String+currencySymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D49C2965D5DC006A7EB6 /* String+currencySymbol.swift */; };
+		7CD2D49F2966031D006A7EB6 /* ConversionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D49E2966031D006A7EB6 /* ConversionResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		7CD2D4982965938F006A7EB6 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		7CD2D49A2965C1C9006A7EB6 /* ConvertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertView.swift; sourceTree = "<group>"; };
 		7CD2D49C2965D5DC006A7EB6 /* String+currencySymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+currencySymbol.swift"; sourceTree = "<group>"; };
+		7CD2D49E2966031D006A7EB6 /* ConversionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				7CD2D49329655E3B006A7EB6 /* Model.swift */,
 				7CD2D4982965938F006A7EB6 /* Favourites.swift */,
 				7CD2D49A2965C1C9006A7EB6 /* ConvertView.swift */,
+				7CD2D49E2966031D006A7EB6 /* ConversionResponse.swift */,
 			);
 			path = "Currency Converter";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				7CD2D4802965545B006A7EB6 /* ContentView.swift in Sources */,
 				7CD2D4972965673E006A7EB6 /* String+currencyNameForLocale.swift in Sources */,
 				7CD2D49229655B16006A7EB6 /* ExchangeResponse.swift in Sources */,
+				7CD2D49F2966031D006A7EB6 /* ConversionResponse.swift in Sources */,
 				7CD2D48E29655667006A7EB6 /* MyCurrenciesView.swift in Sources */,
 				7CD2D47E2965545B006A7EB6 /* Currency_ConverterApp.swift in Sources */,
 				7CD2D49B2965C1C9006A7EB6 /* ConvertView.swift in Sources */,

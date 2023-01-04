@@ -60,4 +60,18 @@ class APIClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return await getRequest(responseType: ExchangeResponse.self, urlRequest: request)
     }
+    
+    class func convert(from: String, to: String, amount: Double) async -> ConversionResponse? {
+        let queries: [URLQueryItem] = [
+            URLQueryItem(name: "from", value: from),
+            URLQueryItem(name: "to", value: to),
+            URLQueryItem(name: "amount", value: String(format: "%.2f", amount))
+        ]
+        let url = urlComponents(path: .convert, queryItems: queries)
+        print(url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return await getRequest(responseType: ConversionResponse.self, urlRequest: request)
+    }
 }

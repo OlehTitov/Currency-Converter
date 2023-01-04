@@ -9,6 +9,7 @@ import Foundation
 
 class Model: ObservableObject {
     @Published var currencies: [String] = []
+    @Published var conversionInProgress: Bool = false
     
     func getLatestRates() async {
         let response = await APIClient.getLatestRates()
@@ -18,6 +19,28 @@ class Model: ObservableObject {
         let array = Array(fetchedCurrencies)
         DispatchQueue.main.async {
             self.currencies = array
+        }
+    }
+    
+    func convert(from: String, to: String, amount: Double) async -> Double? {
+        showConversionprogress(show: true)
+        let response = await APIClient.convert(from: from, to: to, amount: amount)
+        guard let response = response else {
+            showConversionprogress(show: false)
+            return nil
+        }
+        if response.success == true {
+            showConversionprogress(show: false)
+            return response.result
+        } else {
+            showConversionprogress(show: false)
+            return nil
+        }
+    }
+    
+    func showConversionprogress(show: Bool) {
+        DispatchQueue.main.async {
+            self.conversionInProgress = show
         }
     }
     
