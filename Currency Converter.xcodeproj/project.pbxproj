@@ -17,6 +17,7 @@
 		7CD2D49229655B16006A7EB6 /* ExchangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D49129655B16006A7EB6 /* ExchangeResponse.swift */; };
 		7CD2D49429655E3B006A7EB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D49329655E3B006A7EB6 /* Model.swift */; };
 		7CD2D4972965673E006A7EB6 /* String+currencyNameForLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D4962965673D006A7EB6 /* String+currencyNameForLocale.swift */; };
+		7CD2D4992965938F006A7EB6 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D4982965938F006A7EB6 /* Favourites.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7CD2D49129655B16006A7EB6 /* ExchangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResponse.swift; sourceTree = "<group>"; };
 		7CD2D49329655E3B006A7EB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7CD2D4962965673D006A7EB6 /* String+currencyNameForLocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+currencyNameForLocale.swift"; sourceTree = "<group>"; };
+		7CD2D4982965938F006A7EB6 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				7CD2D48F29655888006A7EB6 /* APIClient.swift */,
 				7CD2D49129655B16006A7EB6 /* ExchangeResponse.swift */,
 				7CD2D49329655E3B006A7EB6 /* Model.swift */,
+				7CD2D4982965938F006A7EB6 /* Favourites.swift */,
 			);
 			path = "Currency Converter";
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				7CD2D48E29655667006A7EB6 /* MyCurrenciesView.swift in Sources */,
 				7CD2D47E2965545B006A7EB6 /* Currency_ConverterApp.swift in Sources */,
 				7CD2D49029655888006A7EB6 /* APIClient.swift in Sources */,
+				7CD2D4992965938F006A7EB6 /* Favourites.swift in Sources */,
 				7CD2D48C29655650006A7EB6 /* AllCurrenciesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

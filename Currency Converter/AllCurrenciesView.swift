@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllCurrenciesView: View {
     @EnvironmentObject private var model: Model
+    @EnvironmentObject private var favourites: Favourites
     @State var searchText = ""
     var body: some View {
         if model.currencies.isEmpty {
@@ -25,12 +26,17 @@ struct AllCurrenciesView: View {
                     ForEach(model.searchableCurrencies(text: searchText), id: \.self) { currency in
                         LabeledContent {
                             Button {
-                                //add to favs method
+                                //add to favs or remove
+                                if favourites.contains(currency) {
+                                    favourites.remove(currency)
+                                } else {
+                                    favourites.add(currency)
+                                }
                             } label: {
-                                Text("Add")
+                                Text(favourites.contains(currency) ? "Remove" : "Add")
+                                    .frame(width: 100)
                             }
                             .buttonStyle(.bordered)
-
                         } label: {
                             Text(currency.currencyNameForLocale() ?? currency)
                         }
@@ -50,5 +56,6 @@ struct AllCurrenciesView_Previews: PreviewProvider {
     static var previews: some View {
         AllCurrenciesView()
             .environmentObject(Model())
+            .environmentObject(Favourites())
     }
 }

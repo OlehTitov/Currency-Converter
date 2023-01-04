@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct Currency_ConverterApp: App {
     let model = Model()
+    let favourites = Favourites()
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(model)
+                .environmentObject(favourites)
         }
     }
 }
