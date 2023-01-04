@@ -29,6 +29,7 @@ struct ConvertView: View {
                                 }
                                 focusedField = false
                             }
+                            .disabled(model.conversionInProgress)
                         }
                     }
             } label: {
@@ -61,5 +62,6 @@ struct ConvertView: View {
 struct ConvertView_Previews: PreviewProvider {
     static var previews: some View {
         ConvertView(sourceCurrency: "UAH", sourceAmount: 150.30)
+            .environmentObject(Model())
     }
 }
