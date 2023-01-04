@@ -20,4 +20,17 @@ class Model: ObservableObject {
             self.currencies = array
         }
     }
+    
+    func searchableCurrencies(text: String) -> [String] {
+        if text.isEmpty {
+            return self.currencies.sorted()
+        } else {
+            return self.currencies.filter {
+                guard let name = $0.currencyNameForLocale() else {
+                    return $0.localizedCaseInsensitiveContains(text)
+                }
+                return name.localizedCaseInsensitiveContains(text)
+            }
+        }
+    }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllCurrenciesView: View {
     @EnvironmentObject private var model: Model
+    @State var searchText = ""
     var body: some View {
         if model.currencies.isEmpty {
             VStack {
@@ -19,10 +20,14 @@ struct AllCurrenciesView: View {
                 await model.getLatestRates()
             }
         } else {
-            List {
-                ForEach(model.currencies.sorted(), id: \.self) { currency in
-                    Text(currency.currencyNameForLocale() ?? currency)
+            NavigationStack {
+                List {
+                    ForEach(model.searchableCurrencies(text: searchText), id: \.self) { currency in
+                        Text(currency.currencyNameForLocale() ?? currency)
+                    }
                 }
+                .searchable(text: $searchText)
+                .navigationTitle("All currencies")
             }
         }
         
@@ -32,5 +37,6 @@ struct AllCurrenciesView: View {
 struct AllCurrenciesView_Previews: PreviewProvider {
     static var previews: some View {
         AllCurrenciesView()
+            .environmentObject(Model())
     }
 }
