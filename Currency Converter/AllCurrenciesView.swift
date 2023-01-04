@@ -49,24 +49,4 @@ struct AllCurrenciesView_Previews: PreviewProvider {
     }
 }
 
-struct CurrencyRow: View {
-    var action: () -> Void
-    var currencyName: String
-    var buttonLabel: String
-    var body: some View {
-        LabeledContent {
-            Button {
-                //add to favs or remove
-                action()
-            } label: {
-                Text(buttonLabel)
-                    .frame(width: 80)
-            }
-            .buttonStyle(.bordered)
-        } label: {
-            Text(currencyName)
-                .fixedSize(horizontal: false, vertical: true)
-                .lineLimit(1)
-        }
-    }
-}
+
