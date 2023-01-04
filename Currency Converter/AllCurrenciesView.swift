@@ -20,8 +20,8 @@ struct AllCurrenciesView: View {
             }
         } else {
             List {
-                ForEach(model.currencies, id: \.self) { currency in
-                    Text(currency)
+                ForEach(model.currencies.sorted(), id: \.self) { currency in
+                    Text(currency.currencyNameForLocale() ?? currency)
                 }
             }
         }
