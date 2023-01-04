@@ -15,6 +15,7 @@
 		7CD2D48E29655667006A7EB6 /* MyCurrenciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D48D29655667006A7EB6 /* MyCurrenciesView.swift */; };
 		7CD2D49029655888006A7EB6 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D48F29655888006A7EB6 /* APIClient.swift */; };
 		7CD2D49229655B16006A7EB6 /* ExchangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D49129655B16006A7EB6 /* ExchangeResponse.swift */; };
+		7CD2D49429655E3B006A7EB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D49329655E3B006A7EB6 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7CD2D48D29655667006A7EB6 /* MyCurrenciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCurrenciesView.swift; sourceTree = "<group>"; };
 		7CD2D48F29655888006A7EB6 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		7CD2D49129655B16006A7EB6 /* ExchangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResponse.swift; sourceTree = "<group>"; };
+		7CD2D49329655E3B006A7EB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				7CD2D4832965545D006A7EB6 /* Preview Content */,
 				7CD2D48F29655888006A7EB6 /* APIClient.swift */,
 				7CD2D49129655B16006A7EB6 /* ExchangeResponse.swift */,
+				7CD2D49329655E3B006A7EB6 /* Model.swift */,
 			);
 			path = "Currency Converter";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CD2D49429655E3B006A7EB6 /* Model.swift in Sources */,
 				7CD2D4802965545B006A7EB6 /* ContentView.swift in Sources */,
 				7CD2D49229655B16006A7EB6 /* ExchangeResponse.swift in Sources */,
 				7CD2D48E29655667006A7EB6 /* MyCurrenciesView.swift in Sources */,
