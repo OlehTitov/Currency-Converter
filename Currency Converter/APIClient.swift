@@ -26,7 +26,7 @@ class APIClient {
         return url!
     }
     
-    private func getRequest<ResponseType: Decodable>(responseType: ResponseType.Type, urlRequest: URLRequest) async -> ResponseType? {
+    private class func getRequest<ResponseType: Decodable>(responseType: ResponseType.Type, urlRequest: URLRequest) async -> ResponseType? {
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest, delegate: .none)
             print(data)
@@ -51,5 +51,13 @@ class APIClient {
         } catch {
             return nil
         }
+    }
+    
+    class func getLatestRates() async -> ExchangeResponse? {
+        let url = urlComponents(path: .latest, queryItems: [])
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        return await getRequest(responseType: ExchangeResponse.self, urlRequest: request)
     }
 }
