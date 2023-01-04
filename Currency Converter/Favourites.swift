@@ -9,7 +9,7 @@ import Foundation
 
 class Favourites : ObservableObject {
     
-    private var currencies : Array<String>
+    var currencies : Array<String>
     
     private let saveKey = "Favorites"
     
@@ -31,10 +31,18 @@ class Favourites : ObservableObject {
         save()
     }
     
-    //removes currency from favs
+    //removes currency from favs with name
     func remove(_ item: String) {
         objectWillChange.send()
         currencies.removeAll(where: { $0 == item })
+        print("Number of favourite projects after removing: \(currencies.count)")
+        save()
+    }
+    
+    //remove with index
+    func removeWithIndexSet(i: IndexSet) {
+        objectWillChange.send()
+        currencies.remove(atOffsets: i)
         print("Number of favourite projects after removing: \(currencies.count)")
         save()
     }

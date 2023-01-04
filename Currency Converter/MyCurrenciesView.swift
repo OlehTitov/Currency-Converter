@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct MyCurrenciesView: View {
+    @EnvironmentObject private var model: Model
+    @EnvironmentObject private var favs: Favourites
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if favs.currencies.isEmpty {
+            Text("Add some currencies to your favourites")
+        } else {
+            NavigationStack {
+                List {
+                    ForEach(favs.currencies, id: \.self) {item in
+                        Text(item.currencyNameForLocale() ?? item)
+                    }
+                    .onDelete { indexSet in
+                        favs.removeWithIndexSet(i: indexSet)
+                    }
+                }
+                .listStyle(.plain)
+                .navigationTitle("My currencies")
+            }
+        }
     }
 }
 
