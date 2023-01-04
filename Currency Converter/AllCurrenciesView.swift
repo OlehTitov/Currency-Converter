@@ -23,9 +23,21 @@ struct AllCurrenciesView: View {
             NavigationStack {
                 List {
                     ForEach(model.searchableCurrencies(text: searchText), id: \.self) { currency in
-                        Text(currency.currencyNameForLocale() ?? currency)
+                        LabeledContent {
+                            Button {
+                                //add to favs method
+                            } label: {
+                                Text("Add")
+                            }
+                            .buttonStyle(.bordered)
+
+                        } label: {
+                            Text(currency.currencyNameForLocale() ?? currency)
+                        }
+                        
                     }
                 }
+                .listStyle(.plain)
                 .searchable(text: $searchText)
                 .navigationTitle("All currencies")
             }
