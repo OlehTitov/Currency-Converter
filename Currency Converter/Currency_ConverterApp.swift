@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Currency_ConverterApp: App {
+    let model = Model()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(model)
         }
     }
 }

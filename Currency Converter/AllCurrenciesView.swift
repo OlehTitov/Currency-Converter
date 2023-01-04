@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct AllCurrenciesView: View {
+    @EnvironmentObject private var model: Model
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if model.currencies.isEmpty {
+            VStack {
+                Text("Loading currencies...")
+                ProgressView()
+            }
+            .task {
+                await model.getLatestRates()
+            }
+        } else {
+            List {
+                ForEach(model.currencies, id: \.self) { currency in
+                    Text(currency)
+                }
+            }
+        }
+        
     }
 }
 
