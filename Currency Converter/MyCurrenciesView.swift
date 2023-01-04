@@ -12,12 +12,16 @@ struct MyCurrenciesView: View {
     @EnvironmentObject private var favs: Favourites
     var body: some View {
         if favs.currencies.isEmpty {
-            Text("Add some currencies to your favourites")
+            Text("No favourite currencies yet")
         } else {
             NavigationStack {
                 List {
                     ForEach(favs.currencies, id: \.self) {item in
-                        Text(item.currencyNameForLocale() ?? item)
+                        NavigationLink {
+                            ConvertView(sourceCurrency: item)
+                        } label: {
+                            Text(item.currencyNameForLocale() ?? item)
+                        }
                     }
                     .onDelete { indexSet in
                         favs.removeWithIndexSet(i: indexSet)
@@ -33,5 +37,7 @@ struct MyCurrenciesView: View {
 struct MyCurrenciesView_Previews: PreviewProvider {
     static var previews: some View {
         MyCurrenciesView()
+            .environmentObject(Model())
+            .environmentObject(Favourites())
     }
 }
